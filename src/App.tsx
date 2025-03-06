@@ -8,7 +8,7 @@ export default function App () {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Button colorScheme='teal' size='md'>ボタン</Button>
+        <Router />
         <Link to="/">Homeに戻る</Link>
         <br />
         <Link to="/login">Login</Link>
@@ -16,7 +16,6 @@ export default function App () {
         <Link to="/user_management">Usermanagement</Link>
         <br />
         <Link to="/setting">Setting</Link>
-        <Router />
       </BrowserRouter>
     </ChakraProvider>
   )
