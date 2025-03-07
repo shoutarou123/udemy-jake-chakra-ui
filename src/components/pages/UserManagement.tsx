@@ -10,13 +10,11 @@ export const UserManagement: React.FC = memo(() => {
   const { getUsers, loading, users } = useAllUsers();
   const { onSelectUser, selectedUser } = useSelectUser();
   
-  console.log(selectedUser); 
-
   useEffect(() => getUsers(), [getUsers])
 
   const onClickUser = useCallback((id: number) => { 
-    onSelectUser({ id, users })
-    onOpen()}, [users]) // ここの記述でクリックユーザー情報取得できた
+    onSelectUser({ id, users, onOpen })
+  }, [users]) // ここの記述でクリックユーザー情報取得できた 指定しないとuserの初期情報のまま
 
   return (
     <>
@@ -33,7 +31,7 @@ export const UserManagement: React.FC = memo(() => {
           ))}
         </Wrap >
       )}
-      <UserDetailModal isOpen={isOpen} onClose={onClose} />
+      <UserDetailModal user={selectedUser} isOpen={isOpen} onClose={onClose} />
     </>
   )
 })
