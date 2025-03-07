@@ -8,7 +8,7 @@ import { HeaderLayout } from "../components/templates/HeaderLayout"
 export const Router: React.FC = memo(() => {
   return (
     <Routes>
-      <Route path="/">
+      <Route path="/home">
         <Route index element={<HeaderLayout>{<Home />}</HeaderLayout>} />
 
          

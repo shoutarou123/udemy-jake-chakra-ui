@@ -9,13 +9,10 @@ export default function App () {
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Router />
-        <Link to="/">Homeに戻る</Link>
+        
         <br />
         <Link to="/login">Login</Link>
-        <br />
-        <Link to="/user_management">Usermanagement</Link>
-        <br />
-        <Link to="/setting">Setting</Link>
+        
       </BrowserRouter>
     </ChakraProvider>
   )
