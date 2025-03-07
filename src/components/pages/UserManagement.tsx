@@ -1,7 +1,8 @@
 import React, { memo, useCallback, useEffect } from "react"
-import { Center, Modal, ModalContent, ModalOverlay, Spinner, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react"
+import { Center, Spinner, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react"
 import { UserCard } from "../organisms/user/UserCard"
 import { useAllUsers } from "../hooks/useAllUsers";
+import { UserDetailModal } from "../organisms/user/UserDetailModal";
 
 export const UserManagement: React.FC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -26,13 +27,7 @@ export const UserManagement: React.FC = memo(() => {
           ))}
         </Wrap >
       )}
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay>
-          <ModalContent>
-            <p>test</p>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
+      <UserDetailModal isOpen={isOpen} onClose={onClose} />
     </>
   )
 })
