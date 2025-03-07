@@ -3,10 +3,13 @@ import { User } from '../../types/api/user';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { useMessage } from './useMessage';
+import { useLoginUser } from './useLoginUser';
+import { RangeSlider } from '@chakra-ui/react';
 
 export const useAuth = () => {
   const navigate = useNavigate();
   const { showMessge } = useMessage();
+  const { setLoginUser } = useLoginUser();
 
   const [loading, setLoading] = useState(false);
 
@@ -14,6 +17,7 @@ export const useAuth = () => {
     setLoading(true);
     axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => {
       if (res.data) { // データがtrueであれば
+        setLoginUser(res.data);
         showMessge({title: "ログインに成功しました", status: "success"})
         navigate("/home"); // home画面に遷移
       } else {
